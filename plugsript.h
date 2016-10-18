@@ -4,7 +4,7 @@
 #include <QObject>
 #include "pluginterface.h"
 
-class PlugSript : QObject , PlugInterface
+class PlugSript : QObject ,  PlugInterface
 {
 public:
     PlugSript(QObject* parent=0);

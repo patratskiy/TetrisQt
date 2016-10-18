@@ -9,12 +9,12 @@ public:
     {
 
     }
-virtual int   Initialize();
-virtual int   Send();
-virtual int   Post();
-virtual int   Receive();
-virtual int   Start();
-virtual int   Stop();
+virtual int   Initialize() {return 0;}
+virtual int   Send(){return 0;}
+virtual int   Post(){return 0;}
+virtual int   Receive(){return 0;}
+virtual int   Start(){return 0;}
+virtual int   Stop(){return 0;}
 
 
 };
