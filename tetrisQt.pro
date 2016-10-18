@@ -14,5 +14,5 @@ SOURCES       = main.cpp \
                 apbus.cpp
 
 # install
-#target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/tetrix
-#INSTALLS += target
+target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/tetrix
+INSTALLS += target

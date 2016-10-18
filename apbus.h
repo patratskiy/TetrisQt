@@ -4,6 +4,14 @@
 #include <QThread>
 #include "plugsript.h"
 
+// внимательно читаем про QThread  :
+//  https://habrahabr.ru/post/202312/
+//  http://vasinnet.blogspot.ru/2012/08/recommended-way-to-using-qthread.html
+//  https://habrahabr.ru/post/150274/
+//  http://wiki.qt.io/Threads_Events_QObjects
+
+
+
 class ApBus : public QThread
 {
     Q_OBJECT
