@@ -5,13 +5,15 @@ HEADERS       = tetrixboard.h \
                 tetrixwindow.h \
     plugsript.h \
     apbus.h \
-    pluginterface.h
+    pluginterface.h \
+    plugproxitetris.h
 SOURCES       = main.cpp \
                 tetrixboard.cpp \
                 tetrixpiece.cpp \
                 tetrixwindow.cpp \
                 plugsript.cpp \
-                apbus.cpp
+                apbus.cpp \
+    plugproxitetris.cpp
 
 # install
 target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/tetrix

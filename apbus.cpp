@@ -3,6 +3,7 @@
 ApBus::ApBus()
 {
     cCounter=0;
+
 }
 void ApBus::run()
 {
@@ -11,10 +12,12 @@ void ApBus::run()
     }
 
 }
-void ApBus::init()
+void ApBus::Initialize()
 {
+    window.show();
 
     m_ps =new PlugSript();
+
 }
 
 

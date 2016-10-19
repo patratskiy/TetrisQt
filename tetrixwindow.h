@@ -53,6 +53,8 @@
 
 #include <QFrame>
 #include <QWidget>
+#include "tetrixpiece.h"
+
 
 QT_BEGIN_NAMESPACE
 class QLCDNumber;
@@ -68,6 +70,8 @@ class TetrixWindow : public QWidget
 
 public:
     TetrixWindow();
+signals:
+    void newPiece(TetrixPiece nPiece);          //AAP 20.10.2016
 
 private:
     QLabel *createLabel(const QString &text);

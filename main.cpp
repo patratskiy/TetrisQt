@@ -56,21 +56,15 @@
 
 #include <stdlib.h>
 
-#include "tetrixwindow.h"
 #include "apbus.h"
 #include "plugsript.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    TetrixWindow window;
 
-    ApBus *apBus = new ApBus;
-
-    apBus->start();
-    //apBus1->run();
-
-    window.show();
+    ApBus apBus ;//= new ApBus;
+    apBus.Initialize();
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
     return app.exec();
 }

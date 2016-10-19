@@ -54,6 +54,7 @@
 
 #include "tetrixboard.h"
 #include "tetrixwindow.h"
+#include "tetrixpiece.h"
 
 //! [0]
 TetrixWindow::TetrixWindow()
@@ -117,6 +118,14 @@ TetrixWindow::TetrixWindow()
     connect(dropButton,SIGNAL(clicked()),pSigMapper,SLOT(map())); //Qt::Key_Up
     pSigMapper->setMapping(dropButton,Qt::Key_Space);
 //AAP 04.10.2016
+//AAP 20.10.2016
+
+    bool bOK=connect(board,SIGNAL(newPiece(TetrixPiece)),SIGNAL(newPiece(TetrixPiece))) ;
+    Q_ASSERT(bOK);
+
+
+//AAP 20.10.2016
+
 
 
 //! [6]

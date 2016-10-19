@@ -85,6 +85,7 @@ signals:
     void levelChanged(int level);
     void linesRemovedChanged(int numLines);
 
+    void newPiece(TetrixPiece nPiece);          //AAP 20.10.2016
 
 protected:
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
