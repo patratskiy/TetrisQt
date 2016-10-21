@@ -86,6 +86,7 @@ signals:
     void linesRemovedChanged(int numLines);
 
     void sgNewPiece(TetrixPiece nPiece);          //AAP 20.10.2016
+    void sgChangePos(int);
 
 protected:
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;

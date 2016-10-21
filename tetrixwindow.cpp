@@ -106,7 +106,11 @@ TetrixWindow::TetrixWindow()
     dropButton = new QPushButton("\\|/");
     dropButton->setFocusPolicy(Qt::NoFocus);
 
-    QSignalMapper* pSigMapper=new QSignalMapper(this);
+    DbgLcd = new QLCDNumber(10);
+    DbgLcd->setSegmentStyle(QLCDNumber::Filled);
+
+    QSignalMapper* pSigMapper;
+    pSigMapper=new QSignalMapper(this);
     connect(pSigMapper,SIGNAL(mapped(int)),board,SLOT(buttonPress(int)));
 
     connect(rightButton,SIGNAL(clicked()),pSigMapper,SLOT(map()));
@@ -117,11 +121,23 @@ TetrixWindow::TetrixWindow()
     pSigMapper->setMapping(rotateButton,Qt::Key_Down);
     connect(dropButton,SIGNAL(clicked()),pSigMapper,SLOT(map())); //Qt::Key_Up
     pSigMapper->setMapping(dropButton,Qt::Key_Space);
+
+
 //AAP 04.10.2016
 //AAP 20.10.2016
 
-    bool bOK=connect(board,SIGNAL(sgNewPiece(TetrixPiece)),SIGNAL(sgNewPiece(TetrixPiece))) ;
-    Q_ASSERT(bOK);
+    bool isOK=true;
+    isOK= isOK && connect(this,SIGNAL(sgCmd(int)),board,SLOT(buttonPress(int)) ); //Qt::Key_Up
+
+    isOK =isOK && connect(this,SIGNAL(sgDbg(int)), DbgLcd, SLOT(display(int)));
+    isOK= isOK && connect(board,SIGNAL(sgNewPiece(TetrixPiece)),SIGNAL(sgNewPiece(TetrixPiece))) ;
+    isOK= isOK && connect(board,SIGNAL(sgChangePos(int)),SIGNAL(sgChangePos(int)),Qt::QueuedConnection ) ;
+
+
+
+    Q_ASSERT(isOK);
+
+
 
 
 //AAP 20.10.2016
@@ -142,10 +158,12 @@ TetrixWindow::TetrixWindow()
     layout->addWidget(linesLcd, 3, 2);
     layout->addWidget(quitButton, 4, 2);
     layout->addWidget(pauseButton, 5, 2);
-    layout->addWidget(dropButton,7,0,7,2);
+    layout->addWidget(dropButton,7,0,1,2);
     layout->addWidget(leftButton,6,0);
     layout->addWidget(rotateButton,6,1);
     layout->addWidget(rightButton,6,2);
+    layout->addWidget(DbgLcd,7,2);
+
 
 
 

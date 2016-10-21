@@ -71,9 +71,27 @@ class TetrixWindow : public QWidget
 public:
     TetrixWindow();
 signals:
-    void sgNewPiece(TetrixPiece nPiece);          //AAP 20.10.2016
+    void sgNewPiece(TetrixPiece );          //AAP 20.10.2016
+    void sgDbg(int);          //AAP 20.10.2016
+    void sgCmd(int);          //AAP 20.10.2016
+    void sgChangePos(int);          //AAP 20.10.2016
+
+
+
+public slots:
+    void slDbg(int iP){
+        emit sgDbg(iP);
+    }
+    void slCmd(int iP){
+        emit sgCmd(iP);
+
+    }
+
 
 private:
+
+
+
     QLabel *createLabel(const QString &text);
 
     TetrixBoard *board;
@@ -89,6 +107,7 @@ private:
     QPushButton *leftButton;
     QPushButton *rotateButton;
     QPushButton *dropButton;
+    QLCDNumber *DbgLcd;
 
 
 

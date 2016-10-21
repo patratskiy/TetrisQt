@@ -216,6 +216,8 @@ void TetrixBoard::keyPressEvent(QKeyEvent *event)
     default:
         QFrame::keyPressEvent(event);
     }
+
+    emit sgChangePos(event->key()); //AAP
 //! [14]
 }
 
@@ -267,6 +269,8 @@ void TetrixBoard::oneLineDown()
 {
     if (!tryMove(curPiece, curX, curY - 1))
         pieceDropped(0);
+
+    emit sgChangePos(0);
 }
 //! [21]
 
