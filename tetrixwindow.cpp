@@ -120,7 +120,7 @@ TetrixWindow::TetrixWindow()
 //AAP 04.10.2016
 //AAP 20.10.2016
 
-    bool bOK=connect(board,SIGNAL(newPiece(TetrixPiece)),SIGNAL(newPiece(TetrixPiece))) ;
+    bool bOK=connect(board,SIGNAL(sgNewPiece(TetrixPiece)),SIGNAL(sgNewPiece(TetrixPiece))) ;
     Q_ASSERT(bOK);
 
 

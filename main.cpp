@@ -57,7 +57,7 @@
 #include <stdlib.h>
 
 #include "apbus.h"
-#include "plugsript.h"
+#include "plugscript.h"
 
 int main(int argc, char *argv[])
 {

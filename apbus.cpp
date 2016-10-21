@@ -1,5 +1,7 @@
 #include "apbus.h"
 
+
+
 ApBus::ApBus()
 {
     cCounter=0;
@@ -14,9 +16,11 @@ void ApBus::run()
 }
 void ApBus::Initialize()
 {
-    window.show();
+    tWindow.show();
+    m_ps =new PlugScript();
+    bool isOK=connect(&tWindow,SIGNAL(sgNewPiece(TetrixPiece)),m_ps,SLOT(slNewPiece(TetrixPiece)));
+    Q_ASSERT(isOK);
 
-    m_ps =new PlugSript();
 
 }
 

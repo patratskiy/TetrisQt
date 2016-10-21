@@ -4,14 +4,23 @@
 #include <QObject>
 #include <QtScript>
 
+#include "tetrixpiece.h"
 #include "pluginterface.h"
 
-class PlugSript : QObject ,  PlugInterface
+class PlugScript : public QObject ,  PlugInterface
 {
+    Q_OBJECT
+
     QScriptEngine mScriptEngine;
+
+    TetrixPiece tpCur;
 public:
-    PlugSript(QObject* parent=0);
+    PlugScript(QObject* parent=0);
     int Initialize();
+public slots:
+    void slNewPiece(TetrixPiece);
+
+
 };
 
 #endif // PLAGSRIPT_H

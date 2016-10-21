@@ -71,7 +71,7 @@ class TetrixWindow : public QWidget
 public:
     TetrixWindow();
 signals:
-    void newPiece(TetrixPiece nPiece);          //AAP 20.10.2016
+    void sgNewPiece(TetrixPiece nPiece);          //AAP 20.10.2016
 
 private:
     QLabel *createLabel(const QString &text);

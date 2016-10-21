@@ -356,7 +356,7 @@ void TetrixBoard::newPiece()
         timer.stop();
         isStarted = false;
     }
-    emit newPiece(curPiece); //AAP 20.10.2016
+    emit sgNewPiece(curPiece); //AAP 20.10.2016
 //! [30] //! [31]
 }
 //! [31]
