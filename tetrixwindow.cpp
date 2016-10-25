@@ -130,7 +130,7 @@ TetrixWindow::TetrixWindow()
     isOK= isOK && connect(this,SIGNAL(sgCmd(int)),board,SLOT(buttonPress(int)) ); //Qt::Key_Up
 
     isOK =isOK && connect(this,SIGNAL(sgDbg(int)), DbgLcd, SLOT(display(int)));
-    isOK= isOK && connect(board,SIGNAL(sgNewPiece(TetrixPiece)),SIGNAL(sgNewPiece(TetrixPiece))) ;
+    isOK= isOK && connect(board,SIGNAL(sgNewPiece(InterfaceTetris)),SIGNAL(sgNewPiece(InterfaceTetris))) ;
     isOK= isOK && connect(board,SIGNAL(sgChangePos(int)),SIGNAL(sgChangePos(int)),Qt::QueuedConnection ) ;
 
 

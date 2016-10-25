@@ -50,13 +50,12 @@
 
 #ifndef TETRIXPIECE_H
 #define TETRIXPIECE_H
-#include <QObject>
 
 enum TetrixShape { NoShape, ZShape, SShape, LineShape, TShape, SquareShape,
                    LShape, MirroredLShape };
 
 //! [0]
-class TetrixPiece //: QObject
+class TetrixPiece
 {
 public:
     TetrixPiece() { setShape(NoShape); }

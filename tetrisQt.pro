@@ -16,5 +16,5 @@ SOURCES       = main.cpp \
     plugscript.cpp
 
 # install
-target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/tetrix
+target.path = /home/root/paa
 INSTALLS += target

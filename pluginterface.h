@@ -1,6 +1,8 @@
 #ifndef PLUGINTERFACE_H
 #define PLUGINTERFACE_H
 
+#include "tetrixpiece.h"
+#include <QVector>
 
 class PlugInterface
 {
@@ -18,5 +20,25 @@ virtual int   Stop(){return 0;}
 
 
 };
+
+class InterfaceTetris : public QObject
+{
+    int Width, Height;
+
+public:
+    InterfaceTetris()
+    {};
+    InterfaceTetris(int w,int h)
+    {
+        Width=w;
+        Height=h;
+        Board.resize(w*h);
+    };
+
+    TetrixPiece Piece;
+    QVector<TetrixShape> Board;
+
+};
+
 
 #endif // PLUGINTERFACE_H

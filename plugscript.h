@@ -14,13 +14,14 @@ class PlugScript : public QObject ,  PlugInterface
     QScriptEngine mScriptEngine;
 
     TetrixPiece tpCur;
+    InterfaceTetris *ifTetris;
     int iLines;
     int iWaiting;
 public:
     PlugScript(QObject* parent=0);
     int Initialize();
 public slots:
-    void slNewPiece(TetrixPiece);
+    void slNewPiece(InterfaceTetris);//TetrixPiece
     void slChangePos(int);
 signals:
     void sgDbg(int);

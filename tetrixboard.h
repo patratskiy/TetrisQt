@@ -56,6 +56,7 @@
 #include <QPointer>
 
 #include "tetrixpiece.h"
+#include "pluginterface.h"
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -85,7 +86,7 @@ signals:
     void levelChanged(int level);
     void linesRemovedChanged(int numLines);
 
-    void sgNewPiece(TetrixPiece nPiece);          //AAP 20.10.2016
+    void sgNewPiece(InterfaceTetris nPiece);          //AAP 20.10.2016
     void sgChangePos(int);
 
 protected:

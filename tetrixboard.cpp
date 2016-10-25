@@ -360,7 +360,13 @@ void TetrixBoard::newPiece()
         timer.stop();
         isStarted = false;
     }
-    emit sgNewPiece(curPiece); //AAP 20.10.2016
+
+    //AAP
+    InterfaceTetris it(BoardWidth , BoardHeight);
+    it.Piece=curPiece;
+    for(int i=0;i<BoardWidth * BoardHeight;i++)
+        it.Board << board[i];
+    emit sgNewPiece(it); //AAP 20.10.2016
 //! [30] //! [31]
 }
 //! [31]

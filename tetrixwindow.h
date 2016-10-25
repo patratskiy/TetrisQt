@@ -54,7 +54,7 @@
 #include <QFrame>
 #include <QWidget>
 #include "tetrixpiece.h"
-
+#include "pluginterface.h"
 
 QT_BEGIN_NAMESPACE
 class QLCDNumber;
@@ -71,7 +71,7 @@ class TetrixWindow : public QWidget
 public:
     TetrixWindow();
 signals:
-    void sgNewPiece(TetrixPiece );          //AAP 20.10.2016
+    void sgNewPiece(InterfaceTetris);          //AAP 20.10.2016
     void sgDbg(int);          //AAP 20.10.2016
     void sgCmd(int);          //AAP 20.10.2016
     void sgChangePos(int);          //AAP 20.10.2016

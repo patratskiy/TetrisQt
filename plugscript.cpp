@@ -1,14 +1,24 @@
 #include "plugscript.h"
 
+Q_DECLARE_METATYPE(InterfaceTetris)
+
 PlugScript::PlugScript(QObject* parent) : QObject(parent)
 {
     iLines=0;
 }
-void PlugScript::slNewPiece(TetrixPiece tpD)
+void PlugScript::slNewPiece(InterfaceTetris tpD)
 {
 
-    tpCur=tpD;
+
+    ifTetris=&tpD;
+    tpCur=tpD.Piece;
     iWaiting=0;
+
+    QScriptEngine scrptEngine;
+    //QScriptValue interfaceTetris=scrptEngine.newObject(&tpD);
+    //scrptEngine.globalObject().setProperty("iTetris",interfaceTetris);
+    //QScriptValue val=scrptEngine.evaluate("");
+
     iLines++;
 
     emit sgDbg(iLines);
@@ -16,6 +26,7 @@ void PlugScript::slNewPiece(TetrixPiece tpD)
 }
 void PlugScript::slChangePos(int tpD)
 {
+
     iWaiting++;
     //if (iWaiting%10==0)
     if (tpD==0)
