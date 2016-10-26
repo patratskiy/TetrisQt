@@ -1,4 +1,6 @@
 #include "plugscript.h"
+#include <QByteArray>
+#include <QtWidgets>
 
 Q_DECLARE_METATYPE(InterfaceTetris)
 
@@ -11,11 +13,14 @@ void PlugScript::slNewPiece(InterfaceTetris tpD)
 
 
     ifTetris=&tpD;
-    tpCur=tpD.Piece;
+    QByteArray     tpCur( tpD.aBoard);
     iWaiting=0;
+    QLabel  lb;
 
     QScriptEngine scrptEngine;
-    //QScriptValue interfaceTetris=scrptEngine.newObject(&tpD);
+    QScriptValue objTetris=scrptEngine.newQObject(&lb);
+//    objTetris.setProperty("mBoard",tpCur);
+
     //scrptEngine.globalObject().setProperty("iTetris",interfaceTetris);
     //QScriptValue val=scrptEngine.evaluate("");
 

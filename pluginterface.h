@@ -3,6 +3,8 @@
 
 #include "tetrixpiece.h"
 #include <QVector>
+#include <QByteArray>
+#include <QObject>
 
 class PlugInterface
 {
@@ -23,20 +25,38 @@ virtual int   Stop(){return 0;}
 
 class InterfaceTetris : public QObject
 {
+    Q_OBJECT
+
     int Width, Height;
 
 public:
-    InterfaceTetris()
-    {};
+    TetrixPiece  aPiece;
+    QByteArray  aBoard;
+
+    InterfaceTetris() //  (QObject* parent=0) : QObject(parent)
+    {
+        Width=10; Height=22;
+        aBoard.resize(Width*Height);
+//        aPiece.resize(4);
+
+    }
+    InterfaceTetris(const InterfaceTetris &) // explicit  (QObject* parent=0) : QObject(parent)
+    {
+//        Width=it.Width;
+/*
+        Width=10; Height=22;
+        aBoard.resize(Width*Height);
+//        aPiece.resize(4);
+*/
+    }
+
     InterfaceTetris(int w,int h)
     {
         Width=w;
         Height=h;
-        Board.resize(w*h);
-    };
-
-    TetrixPiece Piece;
-    QVector<TetrixShape> Board;
+        aBoard.resize(Width*Height);
+  //      aPiece.resize(4);
+    }
 
 };
 

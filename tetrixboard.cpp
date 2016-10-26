@@ -363,9 +363,11 @@ void TetrixBoard::newPiece()
 
     //AAP
     InterfaceTetris it(BoardWidth , BoardHeight);
-    it.Piece=curPiece;
+    //it.Piece=curPiece;
     for(int i=0;i<BoardWidth * BoardHeight;i++)
-        it.Board << board[i];
+        it.aBoard[i]= board[i]==TetrixShape::NoShape? 0:1 ; //
+//    for(int i=0;i<4;i++)it.aBoard[i]= board[i]==curPiece.::NoShape? 0:1 ; //
+
     emit sgNewPiece(it); //AAP 20.10.2016
 //! [30] //! [31]
 }

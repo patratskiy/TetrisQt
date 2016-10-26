@@ -86,7 +86,7 @@ signals:
     void levelChanged(int level);
     void linesRemovedChanged(int numLines);
 
-    void sgNewPiece(InterfaceTetris nPiece);          //AAP 20.10.2016
+    void sgNewPiece(InterfaceTetris );          //AAP 20.10.2016
     void sgChangePos(int);
 
 protected:
