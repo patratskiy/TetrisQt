@@ -13,7 +13,7 @@ void PlugScript::slNewPiece(InterfaceTetris tpD)
 
 
     ifTetris=&tpD;
-    QByteArray     tpCur( tpD.aBoard);
+//    QByteArray     tpCur( tpD.aBoard);
     iWaiting=0;
     QLabel  lb;
 

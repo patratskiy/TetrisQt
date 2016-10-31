@@ -23,9 +23,9 @@ virtual int   Stop(){return 0;}
 
 };
 
-class InterfaceTetris : public QObject
+class InterfaceTetris //: public QObject
 {
-    Q_OBJECT
+    //Q_OBJECT
 
     int Width, Height;
 
@@ -37,24 +37,18 @@ public:
     {
         Width=10; Height=22;
         aBoard.resize(Width*Height);
-//        aPiece.resize(4);
 
     }
-    InterfaceTetris(const InterfaceTetris &) // explicit  (QObject* parent=0) : QObject(parent)
+    InterfaceTetris(const InterfaceTetris& it)
+        : Width(it.Width) , Height(it.Height) , aPiece(it.aPiece) ,aBoard(it.aBoard)
     {
-//        Width=it.Width;
-/*
-        Width=10; Height=22;
-        aBoard.resize(Width*Height);
-//        aPiece.resize(4);
-*/
     }
 
     InterfaceTetris(int w,int h)
     {
         Width=w;
         Height=h;
-        aBoard.resize(Width*Height);
+   //     aBoard.resize(Width*Height);
   //      aPiece.resize(4);
     }
 
