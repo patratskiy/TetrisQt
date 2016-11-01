@@ -18,3 +18,6 @@ SOURCES       = main.cpp \
 # install
 target.path = /home/root/paa
 INSTALLS += target
+
+DISTFILES += \
+    tetris.js

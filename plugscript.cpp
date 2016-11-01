@@ -18,14 +18,34 @@ void PlugScript::slNewPiece(InterfaceTetris tpD)
     QLabel  lb;
 
     QScriptEngine scrptEngine;
-    QScriptValue objTetris=scrptEngine.newQObject(&lb);
-//    objTetris.setProperty("mBoard",tpCur);
+    QFile         file("d:\\ETK\\Projects\\qt\\tetrisqt\\tetris.js");
 
+    QScriptValue objTetris=scrptEngine.newQObject(&lb);
+    scrptEngine.globalObject().setProperty("objTetris", objTetris);
+
+    //objTetris.setProperty("mBoard",tpCur);
     //scrptEngine.globalObject().setProperty("iTetris",interfaceTetris);
     //QScriptValue val=scrptEngine.evaluate("");
+    QString str=QLatin1String(file.readAll());
+
+    QScriptValue result =
+        scrptEngine.evaluate(str);
+    if (result.isError()) {
+        QMessageBox::critical(0,
+                              "Evaluating error",
+                              result.toString(),
+                              QMessageBox::Yes
+                             );
+    }else {
+    QMessageBox::critical(0,
+                          QString("File open error"),
+                           "Can not open the script file:"+file.fileName()+"-"+result.toString() ,
+                          QMessageBox::Yes
+                         );
+    }
+
 
     iLines++;
-
     emit sgDbg(iLines);
 
 }
