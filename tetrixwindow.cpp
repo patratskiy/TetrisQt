@@ -133,8 +133,6 @@ TetrixWindow::TetrixWindow()
     isOK= isOK && connect(board,SIGNAL(sgNewPiece(InterfaceTetris)),SIGNAL(sgNewPiece(InterfaceTetris))) ;
     isOK= isOK && connect(board,SIGNAL(sgChangePos(int)),SIGNAL(sgChangePos(int)),Qt::QueuedConnection ) ;
 
-
-
     Q_ASSERT(isOK);
 
 

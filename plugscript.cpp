@@ -15,11 +15,18 @@ void PlugScript::slNewPiece(InterfaceTetris tpD)
     ifTetris=&tpD;
 //    QByteArray     tpCur( tpD.aBoard);
     iWaiting=0;
-    QLabel  lb;
 
     QScriptEngine scrptEngine;
     QFile         file("d:\\ETK\\Projects\\qt\\tetrisqt\\tetris.js");
+    if (!file.open(QFile::ReadOnly)) {
+        QMessageBox::critical(0,
+                              QString("File open error"),
+                               "Can not open the script file:"+file.fileName() ,
+                              QMessageBox::Yes
+                             );
 
+    }
+    QLabel  lb;
     QScriptValue objTetris=scrptEngine.newQObject(&lb);
     scrptEngine.globalObject().setProperty("objTetris", objTetris);
 
@@ -28,25 +35,28 @@ void PlugScript::slNewPiece(InterfaceTetris tpD)
     //QScriptValue val=scrptEngine.evaluate("");
     QString str=QLatin1String(file.readAll());
 
+
+
+    scrptEngine.globalObject().setProperty("foo", 123);
+
     QScriptValue result =
         scrptEngine.evaluate(str);
+
+
+//    Q_ASSERT(result);
+
     if (result.isError()) {
         QMessageBox::critical(0,
                               "Evaluating error",
                               result.toString(),
                               QMessageBox::Yes
                              );
-    }else {
-    QMessageBox::critical(0,
-                          QString("File open error"),
-                           "Can not open the script file:"+file.fileName()+"-"+result.toString() ,
-                          QMessageBox::Yes
-                         );
     }
 
 
+
     iLines++;
-    emit sgDbg(iLines);
+    emit sgDbg(result.toInteger());
 
 }
 void PlugScript::slChangePos(int tpD)
